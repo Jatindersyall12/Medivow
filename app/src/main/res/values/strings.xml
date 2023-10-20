@@ -147,6 +147,9 @@
     <string name="change_location">Change Location</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="appointment_booking">Appointment Booking</string>
+    <string name="my_appointment">My Appointments</string>
+    <string name="appointment_detail">Appointment Detail</string>
+
     <string name="payment_detail">Payment Detail</string>
     <string name="appointment_status">Appointment Status</string>
 

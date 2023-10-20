@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -43,12 +44,12 @@ public class AppointmentListAdapter extends RecyclerView.Adapter<AppointmentList
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.tvDoctorName.setText(appointmentList.get(position).getBookingId());
+        //holder.tvDoctorName.setText(appointmentList.get(position).getBookingId());
     }
 
     @Override
     public int getItemCount() {
-        return (appointmentList == null) ? 0 : appointmentList.size();
+        return (appointmentList == null) ? 0 : 3;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -56,11 +57,16 @@ public class AppointmentListAdapter extends RecyclerView.Adapter<AppointmentList
         TextView tvDoctorName;
         LinearLayout layMain;
 
+        Button btnCancel;
+
         MyViewHolder(View itemView) {
             super(itemView);
             tvDoctorName = itemView.findViewById(R.id.tvDoctorName);
             layMain = itemView.findViewById(R.id.layMain);
+            btnCancel = itemView.findViewById(R.id.btnCancel);
             layMain.setOnClickListener(this);
+            btnCancel.setOnClickListener(this);
+
         }
 
         @SuppressLint("NonConstantResourceId")
@@ -68,6 +74,11 @@ public class AppointmentListAdapter extends RecyclerView.Adapter<AppointmentList
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.layMain:
+                    v.setTag("Detail");
+                    itemClickListener.OnItemClick(v, getAdapterPosition());
+                    break;
+                case R.id.btnCancel:
+                    v.setTag("Cancel");
                     itemClickListener.OnItemClick(v, getAdapterPosition());
                     break;
             }

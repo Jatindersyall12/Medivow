@@ -2,6 +2,7 @@ package com.app.treatEasy.appointmentlist;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.app.treatEasy.R;
 import com.app.treatEasy.baseui.BaseActivity;
 import com.app.treatEasy.listeners.ItemClickListener;
-import com.app.treatEasy.payment.PackageFeeActivity;
 import com.app.treatEasy.preference.AppPreferences;
 import com.app.treatEasy.state.RetrofitClient;
 
@@ -37,13 +37,9 @@ public class AppointmentListActivity extends BaseActivity implements ItemClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment_list);
         appointmentList = new ArrayList<>();
-
-        //setUpToolBarProfile(hospitalName,true);
-
+        setUpToolBar(getString(R.string.my_appointment), true);
         init();
-
         getAppointmentList(AppPreferences.getPreferenceInstance(this).getUserId());
-
     }
 
     public void init() {
@@ -84,9 +80,13 @@ public class AppointmentListActivity extends BaseActivity implements ItemClickLi
     @Override
     public void OnItemClick(View view, int position) {
 
-        Intent intent = new Intent(AppointmentListActivity.this, PackageFeeActivity.class);
-        intent.putExtra("clientId", id);
-        startActivity(intent);
-
+        if(view.getTag()=="Detail") {
+            Intent intent = new Intent(AppointmentListActivity.this, AppointmentDetailActivity.class);
+            intent.putExtra("appointmentId", "ff");
+            startActivity(intent);
+        }
+        else {
+            Log.e("cancel","cancel");
+        }
     }
 }

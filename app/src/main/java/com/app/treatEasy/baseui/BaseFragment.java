@@ -33,6 +33,8 @@ public class BaseFragment extends Fragment implements AppConstants {
     public void startActivity(Class<?> destinationActivity, Bundle bundle) {
         ((BaseActivity) getActivity()).switchActivity(destinationActivity, bundle);
     }
+
+
     /**
      * Method used to start another activity for result
      *

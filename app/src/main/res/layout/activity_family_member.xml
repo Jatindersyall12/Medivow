@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".feature.family_member.FamilyMemberActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/v_light_grey"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+        <include layout="@layout/toolbar_transparent" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_pin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/dp_20"
+        android:fontFamily="@font/muli_semi_bold"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingEnd="@dimen/dp_16"
+        android:visibility="gone"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/now_add_pay_for_your_family_members"
+        android:textSize="@dimen/sp_16"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/dp_20"
+        android:fontFamily="@font/poppins_semibold"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingEnd="@dimen/dp_16"
+        android:textColor="@color/colorPrimary"
+        android:text="Now Add and Pay for your family members"
+        android:textSize="@dimen/sp_16"/>
+
+    <TextView
+        android:id="@+id/tvNoMember"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingEnd="@dimen/dp_16"
+        android:layout_gravity="center"
+        android:layout_marginBottom="85dp"
+        android:visibility="gone"
+        android:textColor="@color/colorPrimary"
+        android:text="No Members Found"
+        android:textSize="@dimen/sp_16"/>
+
+    <include layout="@layout/recyclerview"
+        />
+</LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnAddmember"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/bg_button"
+        android:fontFamily="@font/poppins_bold"
+        android:text="ADD NEW MEMBER"
+        android:textColor="@color/v_light_grey"
+        android:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddMember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/add"
+        android:visibility="gone"
+        android:tint="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:layout_marginBottom="30dp"
+        android:contentDescription="@string/submit"
+        android:layout_margin="16dp" />
+</RelativeLayout>

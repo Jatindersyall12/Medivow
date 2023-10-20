@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/v_light_grey"
+        android:fitsSystemWindows="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/bg_main"
+            android:orientation="vertical">
+
+            <include layout="@layout/toolbar_transparent"
+                android:visibility="gone"/>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/dp_20"
+                        android:gravity="center|bottom"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/welcome"
+                            android:textColor="@color/splash_bg"
+                            android:textSize="@dimen/sp_16" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/intro_logo" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_16"
+                        android:layout_marginEnd="@dimen/dp_16"
+                        android:gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="@dimen/dp_8"
+                            app:cardElevation="0dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:background="@drawable/bg_login_bottom"
+                                android:orientation="vertical">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_marginTop="40dp"
+                                    android:paddingHorizontal="@dimen/dp_20"
+                                    android:paddingBottom="@dimen/dp_24">
+
+
+                                    <TextView
+                                        style="@style/textview_style_black"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:includeFontPadding="false"
+                                        android:gravity="center"
+                                        android:fontFamily="@font/poppins_bold"
+                                        android:layout_gravity="center"
+                                        android:textColor="@color/splash_bg"
+                                        android:textSize="20sp"
+                                        android:text="@string/sign_up" />
+
+                                    <EditText
+                                        android:id="@+id/et_first_name"
+                                        style="@style/editText_style"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="30dp"
+                                        android:hint="@string/enter_first_name"
+                                        android:textColor="@color/grey_dark"
+                                        android:textColorHint="@color/grey_dark"
+                                        android:drawableLeft="@mipmap/signup_profile"
+                                        android:drawablePadding="@dimen/dp_20"
+                                        android:inputType="text|textNoSuggestions|textCapWords"
+                                        android:maxLength="20" />
+
+                                    <TextView
+                                        android:id="@+id/tv_first_name_error"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dp_6"
+                                        android:fontFamily="@font/muli_semi_bold"
+                                        android:textColor="@color/color_red"
+                                        android:textSize="@dimen/sp_14"
+                                        android:visibility="gone" />
+
+                                    <EditText
+                                        android:id="@+id/et_phone_number"
+                                        style="@style/editText_style"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dp_20"
+                                        android:textColor="@color/grey_dark"
+                                        android:textColorHint="@color/grey_dark"
+                                        android:drawableLeft="@mipmap/signup_phone"
+                                        android:drawablePadding="@dimen/dp_20"
+                                        android:hint="@string/enter_phone_number"
+                                        android:inputType="phone|textNoSuggestions"
+                                        android:maxLength="10" />
+
+
+                                    <TextView
+                                        android:id="@+id/tv_phone_number_error"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dp_6"
+                                        android:fontFamily="@font/muli_semi_bold"
+                                        android:textColor="@color/color_red"
+                                        android:textSize="@dimen/sp_14"
+                                        android:visibility="gone" />
+
+                                    <LinearLayout
+                                        android:id="@+id/user_dob_layout"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            style="@style/textview_style_black"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/dp_20"
+                                            android:visibility="gone"
+                                            android:text="@string/date_of_birth" />
+
+                                        <EditText
+                                            android:id="@+id/et_dob"
+                                            style="@style/editText_style"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/dp_20"
+                                            android:clickable="false"
+                                            android:focusable="false"
+                                            android:textColor="@color/grey_dark"
+                                            android:drawableLeft="@mipmap/calendar"
+                                            android:drawablePadding="@dimen/dp_20"
+                                            android:textColorHint="@color/grey_dark"
+                                            android:hint="@string/dd_mm_yyyy"
+                                            android:inputType="textEmailAddress|textNoSuggestions" />
+
+                                        <TextView
+                                            android:id="@+id/tv_dob_error"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/dp_6"
+                                            android:fontFamily="@font/muli_semi_bold"
+                                            android:textColor="@color/color_red"
+                                            android:textSize="@dimen/sp_14"
+                                            android:visibility="gone" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            style="@style/textview_style_black"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:visibility="gone"
+                                            android:layout_marginTop="@dimen/dp_20"
+                                            android:text="@string/state" />
+
+                                        <LinearLayout
+                                            android:id="@+id/user_state_layout"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:visibility="visible"
+                                           android:layout_marginTop="20dp"
+                                            android:orientation="vertical">
+
+
+
+                                            <RelativeLayout
+                                                android:background="@drawable/bg_edittext"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:padding="2dp"
+                                                android:layout_marginTop="@dimen/dp_10">
+                                                <Spinner
+                                                    android:id="@+id/spState"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_centerInParent="true"
+                                                    android:layout_alignParentRight="true"
+                                                    android:layout_marginStart="50dp"
+                                                    android:visibility="gone"
+                                                    android:background="@color/white"
+                                                    android:layout_height="wrap_content"/>
+
+                                                <ImageView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_margin="@dimen/dp_10"
+                                                    android:src="@mipmap/location"/>
+
+                                                <TextView
+                                                    android:id="@+id/tvSelectState"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_alignParentLeft="true"
+                                                    android:layout_centerInParent="true"
+                                                    android:layout_marginStart="50dp"
+                                                    android:fontFamily="@font/poppins_regular"
+                                                    android:text="Select State"
+                                                    android:textColor="@color/grey_dark"
+                                                    android:textSize="16sp" />
+
+                                                <ImageView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_margin="@dimen/dp_10"
+                                                    android:layout_centerInParent="true"
+                                                    android:layout_alignParentRight="true"
+                                                    android:src="@drawable/ic_baseline_keyboard_arrow_down_24"/>
+                                            </RelativeLayout>
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:id="@+id/user_city_layout"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dp_20"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            style="@style/textview_style_black"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:visibility="gone"
+                                            android:text="@string/select_city" />
+
+                                        <RelativeLayout
+                                            android:background="@drawable/bg_edittext"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="2dp"
+                                            android:layout_marginTop="@dimen/dp_10">
+                                            <Spinner
+                                                android:id="@+id/spCity"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginStart="50dp"
+                                                android:visibility="gone"
+                                                android:background="@color/white"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerInParent="true"/>
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_margin="@dimen/dp_10"
+                                                android:src="@mipmap/location"/>
+
+                                            <TextView
+                                                android:id="@+id/tvSelectCity"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentLeft="true"
+                                                android:layout_centerInParent="true"
+                                                android:layout_marginStart="50dp"
+                                                android:textSize="16sp"
+                                                android:fontFamily="@font/poppins_regular"
+                                                android:text="@string/select_city"
+                                                android:textColor="@color/grey_dark" />
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_margin="@dimen/dp_10"
+                                                android:layout_centerInParent="true"
+                                                android:layout_alignParentRight="true"
+                                                android:src="@drawable/ic_baseline_keyboard_arrow_down_24"/>
+                                        </RelativeLayout>
+
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginVertical="@dimen/dp_20"
+                                        android:orientation="horizontal">
+
+                                        <CheckBox
+                                            android:id="@+id/chTerm"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content" />
+
+                                        <TextView
+                                            android:id="@+id/tvTerm"
+                                            style="@style/textview_style_black"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/accept_terms_and_conditions" />
+
+                                    </LinearLayout>
+
+
+                                    <include layout="@layout/button_next" />
+
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/tv_sign_in"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginVertical="@dimen/dp_10"
+                                    android:paddingBottom="@dimen/dp_10"
+                                    android:text="@string/sign_up_now"
+                                    android:textColor="@color/colorPrimary" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

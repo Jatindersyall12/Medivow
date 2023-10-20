@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/dp_10"
+    android:layout_marginTop="@dimen/dp_10"
+    android:background="@color/grey_bg_doctor"
+    android:orientation="vertical"
+    android:elevation="0dp"
+    app:cardCornerRadius="@dimen/dp_8">
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/grey_bg_doctor"
+    android:layout_margin="5dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_10"
+        android:background="@color/grey_bg_doctor"
+        android:gravity="center">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_doctor"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@mipmap/doctor_1"
+            app:civ_border_width="@dimen/dp_1"
+            android:layout_margin="10dp"
+            app:civ_border_color="@color/colorPrimary"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_doctor_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:text="@string/pay_hospital_bills"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/txt_hospital"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_gravity="center"
+                android:layout_marginStart="7dp"
+                android:textSize="12sp"
+                android:text="@string/pay_hospital_bills"
+                android:textColor="@color/color_dark_gray" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:layout_marginTop="5dp"
+                style="?android:attr/ratingBarStyleSmall"
+                android:progressTint="@color/green_light"
+                android:rating="5"/>
+            <Button
+                android:id="@+id/btnBookAppointment"
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/white"
+                android:text="@string/book_appointment"
+                android:layout_margin="@dimen/dp_10"
+                android:background="@drawable/bg_green"/>
+
+            <LinearLayout
+                android:id="@+id/llSpeciality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:visibility="gone"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="left">
+                <ImageView
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_20"
+                    app:tint="@color/colorPrimary"
+                    android:src="@drawable/specialy"/>
+
+                <TextView
+                    android:id="@+id/txt_doctor_speciality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="7dp"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/muli_regular"
+                    android:text="@string/pay_hospital_bills"
+                    android:textColor="@color/colorPrimary" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/muli_regular"
+                android:text="Lorem ipsum dolor sit amet, consectetue adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque"
+                android:textSize="@dimen/sp_14"
+                android:visibility="gone"
+                android:maxLines="4"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+</LinearLayout>

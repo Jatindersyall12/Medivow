@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.app.treatEasy"
+    tools:targetApi="n">
+
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/> -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- <uses-permission android:name="android.permission.READ_SMS"/> -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:name=".BaseAppApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/medivow_logo"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/medivow_logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon,android:theme">
+        <activity
+            android:name=".appointment.AppointmentBookingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".payment.surgery_package.PaymentPackageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".doctorsDetail.DoctorReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".payment.PaymentFharmacyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".payment.PaymentDoctorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".payment.HospitaFeeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".payment.LabFeeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".payment.PackageFeeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".payment.DoctorFeeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".profile.doctorprofile.DoctorProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.home_screen.SeeAllDoctorsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.family_member.MemberProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.wallet.SuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".home.RefundActivity"
+            android:exported="false" />
+        <activity
+            android:name=".home.AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".home.PrivacyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.login_module.TermAndConditionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".payment.RechargeHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".payment.PaymentHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.wallet.PaymentDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.paytm.pgsdk.PaytmPGActivity"
+            android:configChanges="keyboardHidden|orientation|keyboard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".appservice.ServiceDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".notification.NotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".booking.BookingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".new_feature.doctors.DoctorDeatil"
+            android:exported="false" />
+        <activity
+            android:name=".feature.packages.HospitalListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".search.SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SurgeryPackegeDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.packages.package_detail.DescriptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.packages.package_detail.PackageDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.family_member.add_family_member.AddFamilyMemberActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.packages.SurgeryPackagesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.tutorial.TutorialActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".feature.edit_profile.EditProfileActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".feature.profile.ProfileActivity"
+            android:exported="false"
+            android:label="@string/title_activity_profile"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".feature.add_money.AddMoneyToWalletActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".feature.wallet.WalletActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".feature.scan_qr.ScanQRCodeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".feature.family_member.FamilyMemberActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" /> <!-- Firebase Service -->
+        <service
+            android:name=".service.FcmMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".feature.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".feature.landing_activity.HomeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".appointmentlist.AppointmentListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".feature.login_module.signup_newuser.SignUpActivity"
+            android:configChanges="fontScale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".feature.login_module.login_screen.LoginActivity"
+            android:configChanges="fontScale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".feature.login_module.otp_verification.OtpVerificationActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".feature.packages.doctors.package_detail.DoctorsByCategoryActivity" />
+        <activity android:name=".feature.packages.doctor_detail.DoctorsByCategoryDetailActivity" />
+        <activity android:name=".feature.services.ServicesActivity" />
+        <activity android:name=".payment.AppointmentPaymentDetailActivity" />
+        <activity android:name=".payment.AppointmentStatusActivity" />
+        <activity android:name=".feature.edit_family_member.EditFamilyMemberActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <meta-data
+            android:name="com.phonepe.android.sdk.Debuggable"
+            android:value="false"/>
+
+        <!-- Keep it false in production environment-->
+        <meta-data
+            android:name="com.phonepe.android.sdk.isUAT"
+            android:value="false"/>
+
+        <!-- Get the App Id from PhonePe-->
+        <meta-data
+            android:name="com.phonepe.android.sdk.AppId"
+            android:value=" c019d2da-eef0-43fd-b71f-47b2892e40e5"/>
+    </application>
+
+</manifest>

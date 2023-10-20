@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/dp_20"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/dp_20"
+    android:background="@drawable/bg_dialog"
+    android:paddingBottom="@dimen/dp_24">
+
+    <LinearLayout
+        android:id="@+id/dob_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvPackageName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/surgery_date" />
+
+        <TextView
+            android:id="@+id/tvBookingName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/surgery_date" />
+        <TextView
+            style="@style/textview_style_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:visibility="gone"
+            android:text="@string/surgery_date" />
+
+        <TextView
+            android:id="@+id/et_surgery"
+            style="@style/editText_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:clickable="false"
+            android:text="@string/surgery_date"
+            android:focusable="false"
+            android:drawableLeft="@mipmap/calendar"
+            android:drawablePadding="10dp"
+            android:inputType="textEmailAddress|textNoSuggestions" />
+
+        <TextView
+            android:id="@+id/tv_dob_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_6"
+            android:fontFamily="@font/muli_semi_bold"
+            android:textColor="@color/color_red"
+            android:textSize="@dimen/sp_14"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_state_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/textview_style_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:visibility="gone"
+            android:text="Add Member" />
+
+        <RelativeLayout
+            android:background="@drawable/bg_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginTop="@dimen/dp_20">
+            <Spinner
+                android:id="@+id/spMember"
+                android:layout_width="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="50dp"
+                android:visibility="gone"
+                android:background="@color/white"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:src="@mipmap/gender" />
+
+            <TextView
+                android:id="@+id/tvSelectMember"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="50dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/select_member"
+                android:textColor="@color/grey_dark" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_10"
+                android:layout_centerInParent="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_baseline_keyboard_arrow_down_24"/>
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tvAddMemebr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="30dp"
+            android:text="@string/add_member" />
+        <LinearLayout
+            android:background="@drawable/bg_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/dp_10">
+            <Spinner
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <include
+            layout="@layout/button_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_32" />
+    </LinearLayout>
+</LinearLayout>

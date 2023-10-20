@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: phonepe.intentsdk.android.release:IntentSDK:1.8.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/9314f5a3b971776713689bba5efff7a7/transformed/jetified-IntentSDK-1.8.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9314f5a3b971776713689bba5efff7a7/transformed/jetified-IntentSDK-1.8.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9314f5a3b971776713689bba5efff7a7/transformed/jetified-IntentSDK-1.8.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

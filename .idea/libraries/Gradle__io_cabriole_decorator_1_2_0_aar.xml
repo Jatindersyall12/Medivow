@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: io.cabriole:decorator:1.2.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/78e69152713470cf82389390a1e54a52/transformed/jetified-decorator-1.2.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/78e69152713470cf82389390a1e54a52/transformed/jetified-decorator-1.2.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.cabriole/decorator/1.2.0/bf9196e682d3d83c9315d44f328a192acd1565b9/decorator-1.2.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.cabriole/decorator/1.2.0/ab5a826e5a025bc814da2c31165bd4d3cb5a7a17/decorator-1.2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

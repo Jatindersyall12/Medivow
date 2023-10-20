@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/v_light_grey"
+        android:orientation="vertical"
+        tools:context=".feature.profile.ProfileActivity">
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+            <include layout="@layout/toolbar_dark"/>
+        </LinearLayout>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:cardCornerRadius="@dimen/dp_10">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:padding="@dimen/dp_10"
+                android:gravity="center">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_user_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/user_image" />
+
+            </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="@dimen/dp_10"
+              android:gravity="center|left"
+              android:layout_gravity="center|left"
+              android:orientation="vertical">
+              <TextView
+                  android:id="@+id/tv_name"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:ellipsize="end"
+                  android:fontFamily="@font/poppins_bold"
+                  android:gravity="center|left"
+                  android:singleLine="true"
+                  tools:text="Mack Evelyn"
+                  android:textColor="@color/colorPrimary"
+                  android:textSize="@dimen/sp_18" />
+
+              <TextView
+                  android:id="@+id/tv_mobile_number"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:ellipsize="end"
+                  android:fontFamily="@font/poppins_regular"
+                  android:singleLine="true"
+                  tools:text="9898989898"
+                  android:gravity="center|left"
+                  android:textColor="@color/colorPrimary"
+                  android:textSize="@dimen/sp_14" />
+          </LinearLayout>
+          </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_cancel_btn">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Upcoming Schedules"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingStart="5dp"
+                    android:paddingTop="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_10"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorPrimary"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Book Appoinment"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingEnd="5dp"
+                    android:paddingTop="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_10"
+                    android:textSize="12sp"
+                    android:gravity="right"
+                    android:textColor="@color/green_light"/>
+            </LinearLayout>
+        </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_below="@+id/header"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:background="@mipmap/profile_banner"
+                    android:gravity="center"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/muli_semi_bold"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        tools:text="25 Years"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_16" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical">
+                  <RelativeLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="30dp">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_alignParentLeft="true"
+                          android:layout_centerInParent="true"
+                          android:ellipsize="end"
+                          android:fontFamily="@font/poppins_semibold"
+                          android:singleLine="true"
+                          android:text="Family Members"
+                          android:textColor="@color/grey_dark"
+                          android:textSize="@dimen/sp_14" />
+
+                      <Button
+                          android:id="@+id/btnAddMore"
+                          android:layout_width="90dp"
+                          android:layout_height="30dp"
+                          android:layout_alignParentRight="true"
+                          android:layout_centerInParent="true"
+                          android:layout_gravity="right|center"
+                          android:background="@drawable/bg_button"
+                          android:gravity="center"
+                          android:text="Add More"
+                          android:textAllCaps="false"
+                          android:textColor="@color/v_light_grey"
+                          android:textSize="10sp" />
+                  </RelativeLayout>
+
+                    <include layout="@layout/recyclerview" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:singleLine="true"
+                        android:layout_marginTop="10dp"
+                        android:text="Personal Information"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="@dimen/sp_14" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:singleLine="true"
+                                    android:text="Full Name"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/sp_14" />
+
+                                <TextView
+                                    android:id="@+id/tv_user_name"
+                                    android:layout_width="match_parent"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:singleLine="true"
+                                    tools:text="Full Name"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/sp_14" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:singleLine="true"
+                                    android:layout_weight="1"
+                                    android:text="Phone Number"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/sp_14" />
+
+                                <TextView
+                                    android:id="@+id/tv_mobile"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:singleLine="true"
+                                    tools:text="9898989898"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/sp_14" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:singleLine="true"
+                                    android:layout_weight="1"
+                                    android:text="Email ID"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/sp_14" />
+
+                                <TextView
+                                    android:id="@+id/tv_email"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:singleLine="true"
+                                    tools:text="9898989898"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/sp_14" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:singleLine="true"
+                                    android:layout_weight="1"
+                                    android:text="Gender"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/sp_14" />
+
+                                <TextView
+                                    android:id="@+id/tv_gender"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:singleLine="true"
+                                    tools:text="Gender"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/sp_14" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:singleLine="true"
+                                    android:layout_weight="1"
+                                    android:text="DOB"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/sp_14" />
+
+                                <TextView
+                                    android:id="@+id/tv_dob"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:singleLine="true"
+                                    tools:text="DOB"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/sp_14" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:singleLine="true"
+                                    android:layout_weight="1"
+                                    android:text="Location"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/sp_14" />
+
+                                <TextView
+                                    android:id="@+id/tv_city"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:singleLine="true"
+                                    tools:text="Location"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/sp_14" />
+                            </LinearLayout>
+                           <View
+                               android:layout_width="match_parent"
+                               android:layout_height="0.5dp"
+                               android:layout_marginTop="10dp"
+                               android:background="@color/grey_dark"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:singleLine="true"
+                                    android:layout_weight="1"
+                                    android:text="Health Insurance Policy"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/sp_14" />
+
+                                <TextView
+                                    android:id="@+id/tv_insurance"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:singleLine="true"
+                                    android:text="Government Id"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/sp_14" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:singleLine="true"
+                                    android:layout_weight="1"
+                                    android:text="Government Id"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/sp_14" />
+
+                                <TextView
+                                    android:id="@+id/tv_govId"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:singleLine="true"
+                                    android:text="Government Id"
+                                    android:visibility="gone"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/sp_14" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/imgGovId"
+                                android:layout_width="match_parent"
+                                android:scaleType="fitCenter"
+                                android:layout_margin="15dp"
+                                android:layout_height="150dp"/>
+                        </LinearLayout>
+
+                    <include
+                        layout="@layout/button_next"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_32" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+</layout>

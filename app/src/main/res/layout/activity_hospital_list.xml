@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/v_light_grey"
+    tools:context=".feature.packages.HospitalListActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <include layout="@layout/toolbar_transparent" />
+
+    </LinearLayout>
+<ImageView
+    android:id="@+id/imgHospital"
+    android:layout_width="match_parent"
+    android:scaleType="fitXY"
+    android:layout_height="160dp"/>
+    <TextView
+        android:id="@+id/txt_Hospital_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/pay_hospital_bills"
+        android:layout_margin="7dp"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_marginTop="@dimen/dp_10"
+        android:textColor="@color/grey_dark"
+        android:text="Lorem ipsum dolor sit amet, consectetue adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque"
+        android:textSize="@dimen/sp_14"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="7dp"
+        android:maxLines="4"/>
+    <include layout="@layout/recyclerview" />
+
+</LinearLayout>

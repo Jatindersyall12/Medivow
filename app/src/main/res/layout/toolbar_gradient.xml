@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/v_light_grey"
+    app:contentInsetStart="0dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:id="@+id/start_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/dp_8">
+
+            <ImageView
+                android:id="@+id/toolbar_up_btn_activity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_6"
+                android:src="@mipmap/arrow_left"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/toolbar_up_btn_fragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_6"
+                android:src="@mipmap/ic_menu"
+                android:visibility="visible"
+                app:tint="@color/splash_bg" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_toEndOf="@+id/start_layout"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.app.treatEasy.views.circularimageview.CircularImageView
+                android:id="@+id/user_image"
+                android:layout_width="@dimen/dp_36"
+                android:layout_height="@dimen/dp_36"
+                android:padding="@dimen/dp_6"
+                android:visibility="gone"
+                tools:src="@mipmap/user_image" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center|left"
+    android:layout_gravity="center|left"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins_regular"
+        android:singleLine="true"
+        android:text="hello"
+        android:textColor="@color/colorPrimary"
+        android:textSize="12sp"/>
+    <TextView
+        android:id="@+id/toolbar_text"
+        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins_bold"
+        android:singleLine="true"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/sp_16" />
+</LinearLayout>
+
+
+        </LinearLayout>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:layout_alignParentRight="true">
+    <ImageView
+        android:id="@+id/imgSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:layout_toStartOf="@+id/img_user"
+        android:padding="@dimen/dp_6"
+        android:src="@mipmap/ic_search"
+        android:visibility="gone"/>
+    <ImageView
+        android:id="@+id/img_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:padding="@dimen/dp_6"
+        android:src="@mipmap/call"
+        app:tint="@color/colorPrimary"
+        android:visibility="visible" />
+    <ImageView
+        android:id="@+id/imgNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:layout_toStartOf="@+id/img_user"
+        android:padding="@dimen/dp_6"
+        android:layout_marginRight="@dimen/dp_10"
+        android:src="@mipmap/notification"
+        android:visibility="visible"/>
+
+
+</LinearLayout>
+
+    </RelativeLayout>
+</androidx.appcompat.widget.Toolbar>

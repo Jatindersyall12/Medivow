@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "803161732772",
+    "project_id": "treateasy-2ce68",
+    "storage_bucket": "treateasy-2ce68.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:803161732772:android:11590952b1faecd48dd831",
+        "android_client_info": {
+          "package_name": "com.app.treatEasy.debug"
+        }
+      },
+
+      "oauth_client": [
+        {
+          "client_id": "803161732772-qh0gbb1joop9v5a0cqvef46rl4ku6tri.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.treatEasy.debug",
+            "certificate_hash": "c42ba415378fec9d6161053767482f07648fdae5"
+          }
+        },
+        {
+          "client_id": "803161732772-k9h225b3pvnucid7nthl0m9fr3obchv0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5dUe77WMpKCaqtdPMuQnrQ3kWW9Jfmfg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "803161732772-k9h225b3pvnucid7nthl0m9fr3obchv0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

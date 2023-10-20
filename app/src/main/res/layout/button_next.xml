@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/ll_next"
+       android:gravity="center">
+
+      <TextView
+          android:id="@+id/txt_next"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@drawable/bg_loading_btn"
+          android:text="@string/submit"
+          android:padding="@dimen/dp_10"
+          android:textAlignment="center"
+          android:textSize="@dimen/sp_16"
+          android:fontFamily="@font/poppins_semibold"
+          android:textColor="@color/white"/>
+   </LinearLayout>
+</layout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="7dp"
+    android:elevation="@dimen/dp_5"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="6dp"
+    app:cardCornerRadius="20dp">
+
+    <LinearLayout
+        android:id="@+id/layMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgDoctor"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:backgroundTint="#d4d4d4"
+            android:src="@drawable/doctor_icon"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvDoctorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="left"
+                android:padding="5dp"
+                android:text="@string/pay_hospital_bills"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/tvDoctorDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="left"
+                android:padding="5dp"
+                android:text="@string/pay_hospital_bills"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="left"
+            android:padding="5dp"
+            android:text="Patient's name:"
+            android:textColor="@color/colorPrimary"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tvPatientName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="left"
+            android:padding="5dp"
+            android:text="Sanjana Sinha"
+            android:textColor="@color/colorPrimary"
+            tools:ignore="MissingConstraints" />
+
+    </LinearLayout>
+
+</LinearLayout>

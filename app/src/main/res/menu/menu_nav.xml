@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/group1">
+        <item
+            android:id="@+id/buyer_dashboard"
+            android:title="@string/dashboard"
+            android:icon="@mipmap/home_dash"/>
+    </group>
+
+    <group
+        android:id="@+id/group7"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/profile"
+            android:title="@string/my_informations"
+            android:icon="@mipmap/ic_user"/>
+    </group>
+
+    <group
+        android:id="@+id/group9"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/appointment"
+            android:title="@string/my_appointments"
+            android:icon="@mipmap/surgery"/>
+    </group>
+
+   <!-- <group
+        android:id="@+id/groupNotification"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/mnNotification"
+            android:title="Notification"
+            android:icon="@mipmap/notification" />
+    </group>-->
+
+    <group
+        android:id="@+id/group3"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/add_family_member"
+            android:title="@string/add_family_member"
+            android:icon="@mipmap/family"/>
+    </group>
+
+    <group
+        android:id="@+id/groupBooking"
+        android:visible="true"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/mnBooking"
+            android:title="@string/booking_history"
+            android:icon="@mipmap/family"/>
+    </group>
+
+    <group
+        android:id="@+id/groupWalletHistory"
+        android:visible="true"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/mnWalletHistory"
+            android:title="Wallet History"
+            android:icon="@mipmap/wallet"/>
+    </group>
+   <!-- <group
+    android:id="@+id/groupSearchn"
+    android:checkableBehavior="single">
+    <item
+        android:id="@+id/mnSerachn"
+        android:title="Search doctors/ labs/ hospitals"
+        android:icon="@mipmap/search" />
+   </group>
+-->
+
+    <group
+        android:id="@+id/groupPaymentHistory"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/mnPaymentHistory"
+            android:title="Transaction History"
+            android:icon="@mipmap/transaction"/>
+    </group>
+    <group
+        android:id="@+id/groupChangeLocation"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/changeLocation"
+            android:title="Change Location"
+            android:icon="@mipmap/location" />
+    </group>
+
+    <group
+        android:id="@+id/group5"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/help"
+            android:title="@string/help"
+            android:icon="@mipmap/help"/>
+    </group>
+    <group
+        android:id="@+id/groupTermCondition"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/mnTermCondition"
+            android:title="Term And Condition"
+            android:icon="@mipmap/term"/>
+    </group>
+
+    <group
+        android:id="@+id/groupPrivacyPolicy"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/mnPrivacyPolicy"
+            android:title="@string/privacy_policy"
+            android:icon="@mipmap/term"/>
+    </group>
+    <group
+        android:id="@+id/group2"
+        android:visible="false"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/wallet"
+            android:title="@string/wallet" />
+    </group>
+
+
+
+    <group
+        android:id="@+id/groupAbout"
+        android:visible="false"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/mnAbout"
+            android:title="@string/about_us" />
+    </group>
+
+    <group
+        android:id="@+id/groupRefundcondition"
+        android:visible="true"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/mnRefundCondition"
+            android:title="@string/refund_condition" />
+    </group>
+
+   <!-- <group
+        android:id="@+id/groupRichargeHistory"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/mnRichargeHistory"
+            android:title="Recharge History" />
+    </group>-->
+
+
+
+    <group
+        android:id="@+id/group4"
+        android:visible="false"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/transaction_history"
+            android:title="@string/transaction_history" />
+    </group>
+
+
+
+    <item
+        android:id="@+id/log_out"
+        android:visible="false"
+        android:title="@string/log_out" />
+
+    <group
+        android:id="@+id/feedback"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/feddback"
+            android:title="@string/give_us_your_feedback"
+            android:icon="@mipmap/feedback"/>
+    </group>
+</menu>

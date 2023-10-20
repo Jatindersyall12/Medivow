@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="7dp"
+    android:background="@drawable/bg_dialog"
+    android:orientation="vertical">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="@dimen/sp_30"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/please_call_us_for_any_queries"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="@dimen/dp_10"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:textColor="@color/color_dark_gray"
+            android:background="@drawable/bg_cancel_btn"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/tv_cancel"/>
+        <Button
+            android:id="@+id/btnCall"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="@dimen/dp_10"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:background="@drawable/bg_call_buttun"
+            android:text="@string/call"/>
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>

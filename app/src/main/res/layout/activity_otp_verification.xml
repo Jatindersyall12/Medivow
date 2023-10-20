@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/v_light_grey"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/bg_main"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/dp_10">
+
+
+            <include layout="@layout/toolbar_transparent" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="100dp"
+                    android:gravity="center|bottom"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_20"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/welcome"
+                        android:textColor="@color/splash_bg"
+                        android:textSize="@dimen/sp_16" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/intro_logo" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bg_login_bottom"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:layout_marginBottom="@dimen/dp_20"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_pin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingStart="@dimen/dp_16"
+                    android:textColor="@color/splash_bg"
+                    android:paddingEnd="@dimen/dp_16"
+                    android:text="@string/enter_the_5_digit_code_sent_via_sms_on_91_1_s"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/sp_14" />
+
+
+                <com.app.treatEasy.views.pinview.PinView
+                    android:id="@+id/pin_view"
+                    style="@style/PinWidget.PinView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_32"
+                    android:cursorVisible="true"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:inputType="number"
+                    android:itemBackground="@drawable/bg_otp_item"
+                    android:padding="@dimen/dp_6"
+                    android:textColor="@color/color_dark_gray"
+                    android:textSize="@dimen/sp_18"
+                    android:textStyle="bold"
+                    app:cursorColor="@color/colorPrimaryDark"
+                    app:cursorWidth="@dimen/dp_2"
+                    app:itemCount="5"
+                    app:itemHeight="@dimen/pv_pin_view_item_size"
+                    app:itemRadius="@dimen/dp_2"
+                    app:itemSpacing="@dimen/dp_16"
+                    app:itemWidth="@dimen/pv_pin_view_item_size"
+                    app:lineColor="@color/light_grey"
+                    app:lineWidth="@dimen/dp_1"
+                    app:viewType="rectangle" />
+
+                <TextView
+                    android:id="@+id/tv_otp_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:fontFamily="@font/muli_semi_bold"
+                    android:text="@string/pin_is_invalid"
+                    android:textColor="@color/color_red"
+                    android:visibility="gone" />
+
+
+                <include
+                    layout="@layout/button_next"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dp_20"
+                    android:layout_marginTop="@dimen/dp_20" />
+
+
+                <TextView
+                    android:id="@+id/tvTimer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:fontFamily="@font/muli_semi_bold"
+                    android:paddingStart="@dimen/dp_20"
+                    android:paddingEnd="@dimen/dp_20"
+                    android:visibility="visible"
+                    android:paddingBottom="@dimen/dp_20"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:id="@+id/tv_resend_otp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_32"
+                    android:fontFamily="@font/muli_semi_bold"
+                    android:paddingStart="@dimen/dp_20"
+                    android:paddingEnd="@dimen/dp_20"
+                    android:visibility="gone"
+                    android:paddingBottom="@dimen/dp_20"
+                    android:text="@string/resend_pin"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.hadilq.liveevent:liveevent:1.0.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/4b1c1d0d99d7864da65efc85deac31ab/transformed/jetified-liveevent-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/4b1c1d0d99d7864da65efc85deac31ab/transformed/jetified-liveevent-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/4b1c1d0d99d7864da65efc85deac31ab/transformed/jetified-liveevent-1.0.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hadilq.liveevent/liveevent/1.0.0/366cd1ac7c997dfd06ac22f2d9faf6e36e90e9d6/liveevent-1.0.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hadilq.liveevent/liveevent/1.0.0/f2004e8bf085aad6a6cefa6ae79464b52a0e8fee/liveevent-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

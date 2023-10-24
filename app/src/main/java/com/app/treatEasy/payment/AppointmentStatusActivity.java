@@ -1,6 +1,7 @@
 package com.app.treatEasy.payment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ public class AppointmentStatusActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment_status);
         appointmentId = getIntent().getStringExtra("appointmentId");
+        Log.e("appoii",appointmentId);
         getAppointmentDetail(AppPreferences.getPreferenceInstance(this).getUserId(), appointmentId);
         setUpToolBar(getString(R.string.appointment_status), true);
         init();
@@ -39,8 +41,6 @@ public class AppointmentStatusActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 switchActivity(HomeActivity.class);
-                //Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                //startActivity(intent);
             }
         });
     }
@@ -49,7 +49,7 @@ public class AppointmentStatusActivity extends BaseActivity {
         tvAppoitmentNo.setText("102222");
         tvDoctorName.setText(data.getDoctor_name());
         tvDate.setText(data.getAppointment_date());
-        tvTime.setText("676767");
+        tvTime.setText(data.getApproximate_time());
         tvAddress.setText("635866");
     }
 

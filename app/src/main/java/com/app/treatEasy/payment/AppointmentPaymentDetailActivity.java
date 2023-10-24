@@ -14,10 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.treatEasy.R;
+import com.app.treatEasy.appointment.GetAmountToPayRes;
 import com.app.treatEasy.baseui.BaseActivity;
 import com.app.treatEasy.feature.landing_activity.HomeActivity;
-import com.app.treatEasy.feature.wallet.WalletActivity;
-import com.app.treatEasy.payment.surgery_package.PaymentPackageFeeRes;
 import com.app.treatEasy.preference.AppPreferences;
 import com.app.treatEasy.state.RetrofitClient;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -27,27 +26,34 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AppointmentPaymentDetailActivity extends BaseActivity {
-    TextView tvDoctorFee, tvSubTotal, tvDiscountedAmount, tvTokenNumber, tvConvenienceFees, tvWalletAmount;
-    String clientId, bookingId = "0", hospitalName, amount, paymentStatus, doctorId, tokenNumber;
+    TextView tvDoctorFee, tvSubTotal, tvDiscountedAmount, tvTokenNumber, tvConvenienceFees, tvWalletAmount, tvApproxTime;
+    String clientId, hospitalName, amount, paymentStatus, doctorId, tokenNumber, tokenTime,desc,memberId;
     Button btnProcess, btnAddMore;
     LinearLayout layWallet;
+    int totalFee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_detail_appointment);
 
-        clientId = getIntent().getStringExtra("clientId");
+        //clientId = getIntent().getStringExtra("clientId");
+        clientId = "4";
+
         doctorId = getIntent().getStringExtra("doctorId");
         hospitalName = getIntent().getStringExtra("hospital");
         paymentStatus = getIntent().getStringExtra("status");
         tokenNumber = getIntent().getStringExtra("tokenNumber");
+        tokenTime = getIntent().getStringExtra("tokenTime");
+        desc = getIntent().getStringExtra("desc");
+        memberId = getIntent().getStringExtra("memberId");
+
         setUpToolBar(getString(R.string.payment_detail), true);
 
         init();
 
         paymentDoctorList(AppPreferences.getPreferenceInstance(this).getUserId(),
-                clientId, bookingId, doctorId, paymentStatus);
+                doctorId, clientId);
 
         btnAddMore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,23 +61,14 @@ public class AppointmentPaymentDetailActivity extends BaseActivity {
                 Log.e("need to implement phonepay", "phone pay");
             }
         });
+        tvApproxTime.setText(tokenTime);
 
         btnProcess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AppointmentStatusActivity.class);
-                intent.putExtra("appointmentId", "2");
-                startActivity(intent);
-               /* int walletAmount = Integer.valueOf(AppPreferences.getPreferenceInstance(AppointmentPaymentDetailActivity.this).getPayment());
-                int Amount = Integer.valueOf((int) Double.parseDouble(amount));
-                if (Amount < walletAmount) {
 
-                    makePayment(AppPreferences.getPreferenceInstance(AppointmentPaymentDetailActivity.this).getUserId(),
-                            clientId, "0", amount, bookingId, "2", paymentStatus);
-
-                } else {
-                    showPaymentAlertDialog();
-                }*/
+                makePayment(AppPreferences.getPreferenceInstance(AppointmentPaymentDetailActivity.this).getUserId(),
+                        clientId, doctorId, totalFee+"", "0", "6", "1");
             }
         });
 
@@ -88,55 +85,46 @@ public class AppointmentPaymentDetailActivity extends BaseActivity {
         tvWalletAmount = findViewById(R.id.tvWalletAmount);
         layWallet = findViewById(R.id.layWallet);
         btnAddMore = findViewById(R.id.btnAddMore);
+        tvApproxTime = findViewById(R.id.tvApproxTime);
 
     }
 
-    public void paymentDoctorList(String userId, String clientId, String bookingId, String doctorID, String paymentStatus) {
+    public void paymentDoctorList(String userId, String doctorID, String clientId) {
 
         showProgressDialog();
 
-        Call<PaymentPackageFeeRes> call = RetrofitClient.getInstance().getMyApi().getPaymentPackageFeeDetail(userId, clientId,
-                bookingId, doctorID, "2", paymentStatus);
+        Call<GetAmountToPayRes> call = RetrofitClient.getInstance().getMyApi().getAmountToPayAppointment(userId, clientId, doctorID, "1");
 
-        call.enqueue(new Callback<PaymentPackageFeeRes>() {
+        call.enqueue(new Callback<GetAmountToPayRes>() {
             @Override
-            public void onResponse(Call<PaymentPackageFeeRes> call, Response<PaymentPackageFeeRes> response) {
+            public void onResponse(Call<GetAmountToPayRes> call, Response<GetAmountToPayRes> response) {
                 dismissProgressDialog();
                 if (response.body().getStatusCode() == 200) {
-
-
-                    //tv_name.setText(response.body().getData().getTitle());
-                    /*if (paymentStatus.equals("2")){
-                        tvDoctorFee.setText(response.body().getData().getAmount());
-                        tvSubTotal.setText(response.body().getData().getAmount());
-                       // tvPaidAmount.setText(""+response.body().getData().getPartialAmount());
-                        amount=String.valueOf(response.body().getData().getPartialAmount());
-                    }else{
-                        tvDoctorFee.setText(response.body().getData().getAmount());
-                        tvSubTotal.setText(response.body().getData().getAmount());
-                       // tvPaidAmount.setText(""+response.body().getData().getAmount());
-                        amount=String.valueOf(response.body().getData().getAmount());
-                    }*/
-                    //tv_total_amount.setText(AppPreferences.getPreferenceInstance(AppointmentPaymentDetailActivity.this).getPayment());
                     setDataOnTheView(response.body().getData());
                 }
             }
 
             @Override
-            public void onFailure(Call<PaymentPackageFeeRes> call, Throwable t) {
+            public void onFailure(Call<GetAmountToPayRes> call, Throwable t) {
                 dismissProgressDialog();
-                setDataOnTheView(null);
-
                 Toast.makeText(getApplicationContext(), "An error has occured", Toast.LENGTH_LONG).show();
             }
         });
     }
 
-    private void setDataOnTheView(PaymentPackageFeeRes.Data data) {
+    private void setDataOnTheView(GetAmountToPayRes.Data data) {
         tvTokenNumber.setText(tokenNumber);
         tvWalletAmount.setText(AppPreferences.getPreferenceInstance(AppointmentPaymentDetailActivity.this).getPayment());
+        tvDoctorFee.setText(data.fee);
+        tvConvenienceFees.setText(data.convenience_fee);
+        tvDiscountedAmount.setText(data.discounted_fee);
+        totalFee = ((Integer.parseInt(data.fee) + Integer.parseInt(data.convenience_fee)) - Integer.parseInt(data.discounted_fee));
+        tvSubTotal.setText(totalFee + "");
 
-        if (Integer.parseInt("2000".toString()) > Integer.parseInt(AppPreferences.getPreferenceInstance(AppointmentPaymentDetailActivity.this).getPayment())) {
+        AppPreferences.getPreferenceInstance(this).setPayment("20000");
+
+
+        if (Integer.parseInt(totalFee + "") > Integer.parseInt(AppPreferences.getPreferenceInstance(AppointmentPaymentDetailActivity.this).getPayment())) {
             layWallet.setVisibility(View.VISIBLE);
             btnProcess.setEnabled(false);
             btnProcess.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.grey_medium)));
@@ -154,14 +142,17 @@ public class AppointmentPaymentDetailActivity extends BaseActivity {
         showProgressDialog();
 
         Call<MakePaymentRes> call = RetrofitClient.getInstance().getMyApi().makePayment(userId, clientId, doctorID,
-                bookingId, paymentFor, paymentStatus, amount);
+                bookingId, paymentFor, paymentStatus, amount, tokenNumber, memberId, desc, tokenTime);
         call.enqueue(new Callback<MakePaymentRes>() {
             @Override
             public void onResponse(Call<MakePaymentRes> call, Response<MakePaymentRes> response) {
                 dismissProgressDialog();
 
                 if (response.body().getStatusCode() == 200) {
-                    showSuccessDialog();
+
+                    Intent intent = new Intent(getApplicationContext(), AppointmentStatusActivity.class);
+                    intent.putExtra("appointmentId", response.body().getData().getAppointment_id());
+                    startActivity(intent);
                 }
             }
 
@@ -171,26 +162,6 @@ public class AppointmentPaymentDetailActivity extends BaseActivity {
                 Toast.makeText(getApplicationContext(), "An error has occured", Toast.LENGTH_LONG).show();
             }
         });
-    }
-
-    public void showPaymentAlertDialog() {
-        final BottomSheetDialog dialog = new BottomSheetDialog(AppointmentPaymentDetailActivity.this, R.style.CustomDialogTheme);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.setCancelable(false);
-        dialog.setContentView(R.layout.dialog_amount);
-
-        Button callButton = (Button) dialog.findViewById(R.id.btnCall);
-
-        callButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AppointmentPaymentDetailActivity.this, WalletActivity.class);
-                startActivity(intent);
-                dialog.dismiss();
-            }
-        });
-        dialog.show();
     }
 
     public void showSuccessDialog() {

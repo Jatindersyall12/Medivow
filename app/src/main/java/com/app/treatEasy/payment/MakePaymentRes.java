@@ -1,7 +1,10 @@
 package com.app.treatEasy.payment;
 
+import com.app.treatEasy.appointment.TokenModel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class MakePaymentRes {
     @SerializedName("message")
@@ -12,7 +15,15 @@ public class MakePaymentRes {
     private Integer statusCode;
     @SerializedName("data")
     @Expose
-    private Object data;
+    private Data data;
+
+    public Data getData() {
+        return data;
+    }
+
+    public void setData(Data data) {
+        this.data = data;
+    }
 
     public String getMessage() {
         return message;
@@ -30,12 +41,19 @@ public class MakePaymentRes {
         this.statusCode = statusCode;
     }
 
-    public Object getData() {
-        return data;
-    }
+    public class Data {
 
-    public void setData(Object data) {
-        this.data = data;
-    }
+        public String getAppointment_id() {
+            return appointment_id;
+        }
 
+        public void setAppointment_id(String appointment_id) {
+            this.appointment_id = appointment_id;
+        }
+
+        @SerializedName("appointment_id")
+        @Expose
+        private String appointment_id;
+
+    }
 }

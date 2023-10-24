@@ -1,6 +1,7 @@
 package com.app.treatEasy.state;
 
 import com.app.treatEasy.appointment.ClientDetailRes;
+import com.app.treatEasy.appointment.GetAmountToPayRes;
 import com.app.treatEasy.appointment.TokenModel;
 import com.app.treatEasy.appointmentlist.AppointmentListResponse;
 import com.app.treatEasy.appservice.ServiceDetailRes;
@@ -233,6 +234,15 @@ public interface Api {
                                                           @Field("type") String type,
                                                           @Field("payment_status") String payment_status);
 
+
+    @Headers("Authorization: treateasy2022")
+    @FormUrlEncoded
+    @POST("GetAmountToPayDetail")
+    Call<GetAmountToPayRes> getAmountToPayAppointment(@Field("userid") String userid,
+                                                      @Field("client_id") String client_id,
+                                                      @Field("doctor_id") String doctor_id,
+                                                      @Field("type") String type);
+
     @Headers("Authorization: treateasy2022")
     @FormUrlEncoded
     @POST("GetAppointmentDetail")
@@ -287,7 +297,12 @@ public interface Api {
                                      @Field("booking_id") String booking_id,
                                      @Field("payment_for") String payment_for,
                                      @Field("payment_status") String payment_status,
-                                     @Field("amount") String amount);
+                                     @Field("amount") String amount,
+                                     @Field("token_no") String token_no,
+                                     @Field("member_id") String member_id,
+                                     @Field("description") String description,
+                                     @Field("approximate_time") String approximate_time
+                                     );
 
     @Headers("Authorization: treateasy2022")
     @FormUrlEncoded

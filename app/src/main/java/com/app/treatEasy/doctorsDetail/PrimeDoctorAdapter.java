@@ -72,6 +72,7 @@ public class PrimeDoctorAdapter extends RecyclerView.Adapter<PrimeDoctorAdapter.
                 Intent intent=new Intent(mContext, AppointmentBookingActivity.class);
                 intent.putExtra("doctorId",mModelList.get(position).getId());
                 intent.putExtra("doctorName",mModelList.get(position).getDoctorName());
+                intent.putExtra("clientId",mModelList.get(position).getClientId());
                 mContext.startActivity(intent);
             }
         });

@@ -50,6 +50,18 @@ public class TokenModel {
         @Expose
         private Integer isAvailable;
 
+        public String getApprox_time() {
+            return approx_time;
+        }
+
+        public void setApprox_time(String approx_time) {
+            this.approx_time = approx_time;
+        }
+
+        @SerializedName("approx_time")
+        @Expose
+        private String approx_time;
+
         @SerializedName("selectedStatus")
         @Expose
         private boolean selectedStatus = false;

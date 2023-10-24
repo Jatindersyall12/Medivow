@@ -73,7 +73,16 @@ public class AppointmentSuccessModel {
         @SerializedName("doctor_name")
         String doctor_name;
 
+        @SerializedName("approximate_time")
+        String approximate_time;
 
+        public String getApproximate_time() {
+            return approximate_time;
+        }
+
+        public void setApproximate_time(String approximate_time) {
+            this.approximate_time = approximate_time;
+        }
     }
 
 }

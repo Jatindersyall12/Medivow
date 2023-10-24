@@ -80,7 +80,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto_regular"
                     android:text="Appointment No:"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:textColor="@color/colorPrimary" />
 
                 <TextView
@@ -90,7 +90,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="right"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:text="Paytm"
                     android:textColor="@color/colorPrimary" />
 
@@ -109,12 +109,12 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto_regular"
                     android:text="Doctor Name:"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:textColor="@color/colorPrimary" />
 
                 <TextView
                     android:id="@+id/tvDoctorName"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -138,12 +138,12 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto_regular"
                     android:text="Date:"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:textColor="@color/colorPrimary" />
 
                 <TextView
                     android:id="@+id/tvDate"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -167,12 +167,12 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto_regular"
                     android:text="Time:"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:textColor="@color/colorPrimary" />
 
                 <TextView
                     android:id="@+id/tvTime"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -197,12 +197,12 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto_regular"
                     android:text="Address:"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:textColor="@color/colorPrimary" />
 
                 <TextView
                     android:id="@+id/tvAddress"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

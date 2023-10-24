@@ -53,7 +53,7 @@ public class AppointmentBookingActivity extends BaseActivity {
     private TextView tvDoctorName, tvSelectDoctor, tvDate;
 
     private EditText etxDesc;
-    private String doctorId, memberId, doctorName,tokenNumber;
+    private String doctorId, memberId, doctorName,tokenNumber,tokenTime,clientId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +64,7 @@ public class AppointmentBookingActivity extends BaseActivity {
         setUpToolBar(getString(R.string.appointment_booking), true);
         doctorId = getIntent().getStringExtra("doctorId");
         doctorName = getIntent().getStringExtra("doctorName");
+        clientId = getIntent().getStringExtra("clientId");
 
         ids();
         tvDoctorName.setText(doctorName);
@@ -79,7 +80,7 @@ public class AppointmentBookingActivity extends BaseActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
                 memberId = memberList.get(i).getId();
-                getTokenData(userId, memberId, doctorId);
+                getTokenData(userId, clientId, doctorId);
 
             }
 
@@ -152,8 +153,8 @@ public class AppointmentBookingActivity extends BaseActivity {
                 Log.e("desc", etxDesc.getText().toString());
                 for (int i = 0; i < tokenList.size(); i++) {
                     if (tokenList.get(i).getSelectedStatus()) {
-                        Log.e("tokennumber", tokenList.get(i).getTokenNo().toString());
                         tokenNumber=tokenList.get(i).getTokenNo().toString();
+                        tokenTime=tokenList.get(i).getApprox_time().toString();
                         break;
                     }
                 }
@@ -161,10 +162,13 @@ public class AppointmentBookingActivity extends BaseActivity {
                 Intent intent = new Intent(getApplicationContext(), AppointmentPaymentDetailActivity.class);
                 intent.putExtra("doctorId", doctorId);
                 intent.putExtra("doctorName", doctorName);
-                intent.putExtra("clientId", memberId);
+                intent.putExtra("memberId", memberId);
                 intent.putExtra("date", tvDate.getText().toString());
                 intent.putExtra("desc", etxDesc.getText().toString());
                 intent.putExtra("tokenNumber", tokenNumber);
+                intent.putExtra("tokenTime", tokenTime);
+                intent.putExtra("desc", etxDesc.getText().toString());
+                intent.putExtra("clientId", clientId);
                 startActivity(intent);
             }
         });
@@ -172,7 +176,7 @@ public class AppointmentBookingActivity extends BaseActivity {
     }
 
     public void getMemberData(String userId) {
-
+        //showProgressDialog();
         Call<MemberDetailResponse> call = RetrofitClient.getInstance().getMyApi().getFamilyMember(userId);
         call.enqueue(new Callback<MemberDetailResponse>() {
             @Override
@@ -182,7 +186,7 @@ public class AppointmentBookingActivity extends BaseActivity {
 
                     memberList = response.body().getData();
                     MemberDetailResponse.Datum self = new MemberDetailResponse.Datum();
-                    self.setId(userId);
+                    self.setId("0");
                     self.setMemberName("Self");
                     memberList.add(0, self);
                     if (memberList.size() > 0) {
@@ -198,7 +202,7 @@ public class AppointmentBookingActivity extends BaseActivity {
 
             @Override
             public void onFailure(Call<MemberDetailResponse> call, Throwable t) {
-                dismissProgressDialog();
+                //dismissProgressDialog();
                 Toast.makeText(getApplicationContext(), "An error has occured", Toast.LENGTH_LONG).show();
             }
         });
@@ -210,7 +214,7 @@ public class AppointmentBookingActivity extends BaseActivity {
         Log.d("clientId", clientId);
         Log.d("doctorId", doctorId);
 
-        userId = "25";
+        //userId = "25";
         clientId = "4";
         doctorId = "4";
 

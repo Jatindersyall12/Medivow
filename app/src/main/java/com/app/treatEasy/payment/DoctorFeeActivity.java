@@ -129,7 +129,7 @@ public class DoctorFeeActivity extends BaseActivity {
         showProgressDialog();
 
         Call<MakePaymentRes> call = RetrofitClient.getInstance().getMyApi().makePayment(userId,clientId,doctorID,
-                bookingId,paymentFor,"1",amount);
+                bookingId,paymentFor,"1",amount,"","","","");
         call.enqueue(new Callback<MakePaymentRes>(){
             @Override
             public void onResponse(Call<MakePaymentRes> call, Response<MakePaymentRes> response) {

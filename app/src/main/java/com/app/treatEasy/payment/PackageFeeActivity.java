@@ -127,7 +127,7 @@ public class PackageFeeActivity extends BaseActivity {
         showProgressDialog();
 
         Call<MakePaymentRes> call = RetrofitClient.getInstance().getMyApi().makePayment(userId,clientId,doctorID,
-                bookingId,paymentFor,paymentStatus,amount);
+                bookingId,paymentFor,paymentStatus,amount,"","","","");
         call.enqueue(new Callback<MakePaymentRes>(){
             @Override
             public void onResponse(Call<MakePaymentRes> call, Response<MakePaymentRes> response) {

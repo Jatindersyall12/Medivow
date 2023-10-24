@@ -179,7 +179,7 @@ public class PaymentDetailActivity extends BaseActivity implements ItemPaymentLi
         showProgressDialog();
 
         Call<MakePaymentRes> call = RetrofitClient.getInstance().getMyApi().makePayment(userId,clientId,doctorID,
-                bookingId,paymentFor,amount,"1");
+                bookingId,paymentFor,amount,"1","","","","");
         call.enqueue(new Callback<MakePaymentRes>(){
             @Override
             public void onResponse(Call<MakePaymentRes> call, Response<MakePaymentRes> response) {

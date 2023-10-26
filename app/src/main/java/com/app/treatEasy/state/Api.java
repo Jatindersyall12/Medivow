@@ -286,7 +286,8 @@ public interface Api {
     @Headers("Authorization: treateasy2022")
     @FormUrlEncoded
     @POST("GetAppointmentList")
-    Call<AppointmentListResponse> getAppointmentList(@Field("userid") String userid);
+    Call<AppointmentListResponse> getAppointmentList(@Field("userid") String userid,
+                                                     @Field("type") String type);
 
     @Headers("Authorization: treateasy2022")
     @FormUrlEncoded

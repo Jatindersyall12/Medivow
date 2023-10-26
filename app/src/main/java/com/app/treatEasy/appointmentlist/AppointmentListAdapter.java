@@ -44,12 +44,12 @@ public class AppointmentListAdapter extends RecyclerView.Adapter<AppointmentList
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        //holder.tvDoctorName.setText(appointmentList.get(position).getBookingId());
+        holder.tvDoctorName.setText(appointmentList.get(position).getDoctor_name());
     }
 
     @Override
     public int getItemCount() {
-        return (appointmentList == null) ? 0 : 3;
+        return (appointmentList == null) ? 0 : appointmentList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

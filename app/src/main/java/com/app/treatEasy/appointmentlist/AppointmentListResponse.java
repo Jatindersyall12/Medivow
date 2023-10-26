@@ -41,28 +41,39 @@ public class AppointmentListResponse {
 
     public class Datum {
 
-        @SerializedName("booking_id")
+        @SerializedName("id")
         @Expose
-        private String bookingId;
-        @SerializedName("title")
+        private String id;
+        @SerializedName("token_no")
         @Expose
-        private String title;
+        private String token_no;
 
-        public String getBookingId() {
-            return bookingId;
+        @SerializedName("doctor_name")
+        @Expose
+        private String doctor_name;
+
+        public String getDoctor_name() {
+            return doctor_name;
         }
 
-        public void setBookingId(String bookingId) {
-            this.bookingId = bookingId;
+        public void setDoctor_name(String doctor_name) {
+            this.doctor_name = doctor_name;
         }
 
-        public String getTitle() {
-            return title;
+        public String getId() {
+            return id;
         }
 
-        public void setTitle(String title) {
-            this.title = title;
+        public void setId(String id) {
+            this.id = id;
         }
 
+        public String getToken_no() {
+            return token_no;
+        }
+
+        public void setToken_no(String token_no) {
+            this.token_no = token_no;
+        }
     }
 }

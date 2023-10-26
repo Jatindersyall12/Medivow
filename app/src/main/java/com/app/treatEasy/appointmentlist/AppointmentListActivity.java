@@ -10,12 +10,14 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import com.app.treatEasy.R;
 import com.app.treatEasy.baseui.BaseActivity;
 import com.app.treatEasy.listeners.ItemClickListener;
 import com.app.treatEasy.preference.AppPreferences;
 import com.app.treatEasy.state.RetrofitClient;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,69 +26,57 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AppointmentListActivity extends BaseActivity implements ItemClickListener {
+public class AppointmentListActivity extends BaseActivity {
 
     ImageView img_Hospital_image;
     TextView tvHospitalName;
-    List<AppointmentListResponse> appointmentList;
+
     private RecyclerView mRecycler;
+
+    TabLayout tabLayout;
+    ViewPager viewPager;
     String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment_list);
-        appointmentList = new ArrayList<>();
+        tabLayout=(TabLayout)findViewById(R.id.tabLayout);
+        viewPager=(ViewPager)findViewById(R.id.viewPager);
+
+        tabLayout.addTab(tabLayout.newTab().setText("Upcoming"));
+        tabLayout.addTab(tabLayout.newTab().setText("Completed"));
+        tabLayout.addTab(tabLayout.newTab().setText("Cancelled"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        final MyAdapter adapter = new MyAdapter(this,getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(adapter);
+
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
         setUpToolBar(getString(R.string.my_appointment), true);
         init();
-        getAppointmentList(AppPreferences.getPreferenceInstance(this).getUserId());
     }
 
     public void init() {
         img_Hospital_image = findViewById(R.id.img_Hospital_image);
         tvHospitalName = findViewById(R.id.tvHospitalName);
         mRecycler = findViewById(R.id.recycler_view);
-    }
-
-    public void getAppointmentList(String userId) {
-
-
-        showProgressDialog();
-
-        Call<AppointmentListResponse> call = RetrofitClient.getInstance().getMyApi().getAppointmentList(userId);
-        call.enqueue(new Callback<AppointmentListResponse>() {
-            @Override
-            public void onResponse(Call<AppointmentListResponse> call, Response<AppointmentListResponse> response) {
-                dismissProgressDialog();
-
-                if (response.body().getStatusCode() == 200) {
-
-                    mRecycler.setLayoutManager(new LinearLayoutManager(AppointmentListActivity.this));
-                    AppointmentListAdapter adapter = new AppointmentListAdapter(AppointmentListActivity.this,
-                            response.body().getData(), AppointmentListActivity.this);
-                    mRecycler.setAdapter(adapter);
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<AppointmentListResponse> call, Throwable t) {
-                dismissProgressDialog();
-                Toast.makeText(getApplicationContext(), "An error has occured", Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-
-    @Override
-    public void OnItemClick(View view, int position) {
-
-        if(view.getTag()=="Detail") {
-            Intent intent = new Intent(AppointmentListActivity.this, AppointmentDetailActivity.class);
-            intent.putExtra("appointmentId", "ff");
-            startActivity(intent);
-        }
-        else {
-            Log.e("cancel","cancel");
-        }
     }
 }

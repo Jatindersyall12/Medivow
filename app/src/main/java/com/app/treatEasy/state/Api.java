@@ -4,6 +4,7 @@ import com.app.treatEasy.appointment.ClientDetailRes;
 import com.app.treatEasy.appointment.GetAmountToPayRes;
 import com.app.treatEasy.appointment.TokenModel;
 import com.app.treatEasy.appointmentlist.AppointmentListResponse;
+import com.app.treatEasy.appointmentlist.CancelAppointmentResponse;
 import com.app.treatEasy.appservice.ServiceDetailRes;
 import com.app.treatEasy.banner.BannerResponseModel;
 import com.app.treatEasy.banner.BannerSendModel;
@@ -288,6 +289,12 @@ public interface Api {
     @POST("GetAppointmentList")
     Call<AppointmentListResponse> getAppointmentList(@Field("userid") String userid,
                                                      @Field("type") String type);
+
+    @Headers("Authorization: treateasy2022")
+    @FormUrlEncoded
+    @POST("cancelAppointment")
+    Call<CancelAppointmentResponse> cancelAppointment(@Field("userid") String userid,
+                                                      @Field("appointment_id") String appointment_id);
 
     @Headers("Authorization: treateasy2022")
     @FormUrlEncoded

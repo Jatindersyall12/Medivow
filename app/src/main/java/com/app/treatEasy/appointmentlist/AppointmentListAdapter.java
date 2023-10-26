@@ -6,9 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.treatEasy.R;
 import com.app.treatEasy.listeners.ItemClickListener;
-import com.app.treatEasy.payment.surgery_package.paymentPackageRes;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -27,12 +24,14 @@ public class AppointmentListAdapter extends RecyclerView.Adapter<AppointmentList
 
     List<AppointmentListResponse.Datum> appointmentList;
     private final ItemClickListener itemClickListener;
+    private boolean isCancelButtonShow;
 
     public AppointmentListAdapter(Context context, List<AppointmentListResponse.Datum> appointmentList,
-                                  ItemClickListener itemClickListener) {
+                                  ItemClickListener itemClickListener, boolean isCancelButtonShow) {
         this.mContext = context;
         this.appointmentList = appointmentList;
         this.itemClickListener = itemClickListener;
+        this.isCancelButtonShow=isCancelButtonShow;
     }
 
     @NotNull
@@ -45,6 +44,11 @@ public class AppointmentListAdapter extends RecyclerView.Adapter<AppointmentList
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.tvDoctorName.setText(appointmentList.get(position).getDoctor_name());
+        if(isCancelButtonShow)
+            holder.btnCancel.setVisibility(View.VISIBLE);
+        else
+            holder.btnCancel.setVisibility(View.GONE);
+
     }
 
     @Override

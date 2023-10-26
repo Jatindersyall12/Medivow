@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,6 +34,8 @@ public class CompletedFragment extends BaseFragment implements ItemClickListener
 
     private ItemClickListener context;
     private TextView tvNoRecord;
+
+    List<AppointmentListResponse.Datum> data;
 
     public CompletedFragment() {
     }
@@ -72,11 +73,12 @@ public class CompletedFragment extends BaseFragment implements ItemClickListener
                     tvNoRecord.setVisibility(View.VISIBLE);
                     mRecycler.setVisibility(View.GONE);
                 } else {
+                    data = response.body().getData();
                     tvNoRecord.setVisibility(View.GONE);
                     mRecycler.setVisibility(View.VISIBLE);
                     mRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
                     AppointmentListAdapter adapter = new AppointmentListAdapter(getActivity(),
-                            response.body().getData(), context);
+                            response.body().getData(), context, false);
                     mRecycler.setAdapter(adapter);
                 }
             }
@@ -94,7 +96,7 @@ public class CompletedFragment extends BaseFragment implements ItemClickListener
 
         if (view.getTag() == "Detail") {
             Intent intent = new Intent(getActivity(), AppointmentDetailActivity.class);
-            intent.putExtra("appointmentId", "ff");
+            intent.putExtra("appointmentId", data.get(position).getId());
             startActivity(intent);
         } else {
             Log.e("cancel", "cancel");

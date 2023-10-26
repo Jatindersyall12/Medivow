@@ -4,8 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="7dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginBottom="20dp"
     android:background="@drawable/item_detail_bg"
     android:gravity="center"
     android:orientation="vertical">
@@ -44,12 +42,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp_10"
                     android:layout_marginEnd="@dimen/dp_10"
-                    android:fontFamily="@font/roboto_bold"
+                    android:fontFamily="@font/poppins_bold"
                     android:gravity="left"
                     android:padding="5dp"
                     android:text="Dr.Alisa Nova"
                     android:textColor="#032F53"
-                    android:textSize="17sp"
+                    android:textSize="16dp"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
@@ -58,8 +56,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp_10"
                     android:layout_marginEnd="@dimen/dp_10"
+                    android:textSize="14dp"
                     android:gravity="left"
                     android:padding="5dp"
+                    android:fontFamily="@font/poppins_regular"
                     android:text="Viralogist | Asian Hospital"
                     android:textColor="@color/colorPrimary"
                     tools:ignore="MissingConstraints" />
@@ -79,21 +79,23 @@
                 android:layout_marginEnd="@dimen/dp_10"
                 android:gravity="left"
                 android:paddingTop="5dp"
+                android:textSize="14dp"
+                android:fontFamily="@font/poppins_regular"
                 android:paddingBottom="5dp"
                 android:text="Patient's name:"
                 android:textColor="@color/colorPrimary"
                 tools:ignore="MissingConstraints" />
 
             <TextView
-                android:textSize="16sp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:id="@+id/tvPatientName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dp_10"
-                android:fontFamily="@font/roboto_bold"
+                android:fontFamily="@font/poppins_bold"
                 android:gravity="left"
+                android:textSize="14dp"
                 android:text="Sanjana Sinha(F,29)"
                 android:textColor="#032F53"
                 tools:ignore="MissingConstraints" />
@@ -124,11 +126,13 @@
 
                 <TextView
                     android:id="@+id/tvDate"
+                    android:textSize="14dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
+                    android:fontFamily="@font/poppins_regular"
                     android:padding="5dp"
                     android:text="11:00 -3:00"
                     android:textColor="@color/colorPrimary"
@@ -153,9 +157,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:textSize="14dp"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
                     android:padding="5dp"
+                    android:fontFamily="@font/poppins_regular"
                     android:text="Patient's name:"
                     tools:ignore="MissingConstraints" />
 
@@ -168,7 +174,9 @@
             android:id="@+id/btnCancel"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:textSize="14dp"
             android:layout_marginTop="15dp"
+            android:fontFamily="@font/poppins_regular"
             android:background="@drawable/cancel_button_bg"
             android:textAllCaps="false"
             android:text="Cancel" />

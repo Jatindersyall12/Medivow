@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,6 +33,7 @@ public class UpComingFragment extends BaseFragment implements ItemClickListener 
     private RecyclerView mRecycler;
 
     private TextView tvNoRecord;
+    List<AppointmentListResponse.Datum> data;
 
     private ItemClickListener context;
 
@@ -74,11 +74,12 @@ public class UpComingFragment extends BaseFragment implements ItemClickListener 
                     tvNoRecord.setVisibility(View.VISIBLE);
                     mRecycler.setVisibility(View.GONE);
                 } else {
+                    data = response.body().getData();
                     tvNoRecord.setVisibility(View.GONE);
                     mRecycler.setVisibility(View.VISIBLE);
                     mRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
                     AppointmentListAdapter adapter = new AppointmentListAdapter(getActivity(),
-                            response.body().getData(), context);
+                            response.body().getData(), context, true);
                     mRecycler.setAdapter(adapter);
                 }
             }
@@ -96,10 +97,32 @@ public class UpComingFragment extends BaseFragment implements ItemClickListener 
 
         if (view.getTag() == "Detail") {
             Intent intent = new Intent(getActivity(), AppointmentDetailActivity.class);
-            intent.putExtra("appointmentId", "ff");
+            intent.putExtra("appointmentId", data.get(position).getId());
             startActivity(intent);
         } else {
             Log.e("cancel", "cancel");
+            cancelAppointment(AppPreferences.getPreferenceInstance(getActivity()).getUserId(), data.get(position).getId());
         }
+    }
+
+    public void cancelAppointment(String userId, String appointmentId) {
+
+        showProgressDialog();
+        Call<CancelAppointmentResponse> call = RetrofitClient.getInstance().getMyApi().cancelAppointment(userId, appointmentId);
+        call.enqueue(new Callback<CancelAppointmentResponse>() {
+            @Override
+            public void onResponse(Call<CancelAppointmentResponse> call, Response<CancelAppointmentResponse> response) {
+                dismissProgressDialog();
+                if (response.body().getStatusCode() == 200) {
+                    getAppointmentList(AppPreferences.getPreferenceInstance(getActivity()).getUserId(), "1");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CancelAppointmentResponse> call, Throwable t) {
+                dismissProgressDialog();
+                Toast.makeText(getActivity(), "An error has occured", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

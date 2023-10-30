@@ -89,7 +89,7 @@
             <TextView
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:id="@+id/tvPatientName"
+                android:id="@+id/tvPatientDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dp_10"

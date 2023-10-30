@@ -292,7 +292,7 @@ public interface Api {
 
     @Headers("Authorization: treateasy2022")
     @FormUrlEncoded
-    @POST("cancelAppointment")
+    @POST("CancelAppointment")
     Call<CancelAppointmentResponse> cancelAppointment(@Field("userid") String userid,
                                                       @Field("appointment_id") String appointment_id);
 

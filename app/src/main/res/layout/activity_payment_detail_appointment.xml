@@ -125,8 +125,12 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:weightSum="2"
+                            android:layout_marginBottom="@dimen/dp_10"
                             android:orientation="horizontal"
-                            android:padding="15dp">
+                            android:paddingStart="15dp"
+                            android:paddingEnd="15dp">
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -143,32 +147,6 @@
                                 android:layout_weight="1"
                                 android:fontFamily="@font/roboto_bold"
                                 android:gravity="right"
-                                android:text="Doctor's Fee :"
-                                android:textColor="@color/colorPrimary" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:paddingStart="15dp"
-                            android:paddingEnd="15dp"
-                            android:visibility="gone">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/roboto_regular"
-                                android:text="Convenience Fee :"
-                                android:textColor="@color/colorPrimary" />
-
-                            <TextView
-                                android:id="@+id/tvConveFee"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/roboto_bold"
                                 android:text="Doctor's Fee :"
                                 android:textColor="@color/colorPrimary" />
                         </LinearLayout>

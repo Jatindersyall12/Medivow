@@ -22,7 +22,7 @@ public class AppointmentDetailActivity extends BaseActivity {
 
     ImageView img_Hospital_image;
     TextView tvHospitalName;
-    TextView tvAppoitmentNo, tvDoctorName, tvDate, tvTime, tvAddress;
+    TextView tvAppoitmentNo, tvDoctorName, tvDate, tvTime, tvAddress,tvPatientName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class AppointmentDetailActivity extends BaseActivity {
 
         init();
 
-        getAppointmentDetail(AppPreferences.getPreferenceInstance(this).getUserId(),"5");
+        getAppointmentDetail(AppPreferences.getPreferenceInstance(this).getUserId(),getIntent().getStringExtra("appointmentId"));
 
     }
 
@@ -45,6 +45,7 @@ public class AppointmentDetailActivity extends BaseActivity {
         tvDate = findViewById(R.id.tvDate);
         tvTime = findViewById(R.id.tvTime);
         tvAddress = findViewById(R.id.tvAddress);
+        tvPatientName=findViewById(R.id.tvPatientName);
     }
 
     public void getAppointmentDetail(String userId, String appointmentId) {
@@ -71,10 +72,11 @@ public class AppointmentDetailActivity extends BaseActivity {
     }
 
     private void setDataOnUI(AppointmentSuccessModel.Data data) {
-        tvAppoitmentNo.setText("102222");
+        tvAppoitmentNo.setText(data.getToken_no());
         tvDoctorName.setText(data.getDoctor_name());
         tvDate.setText(data.getAppointment_date());
-        tvTime.setText("676767");
-        tvAddress.setText("635866");
+        tvTime.setText(data.getApproximate_time());
+        tvAddress.setText(data.getAddress());
+        tvPatientName.setText(data.getMember_name());
     }
 }

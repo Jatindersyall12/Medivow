@@ -122,17 +122,17 @@ public class AppointmentListResponse {
         private String client_name;
 
 
-        public String getPatient_name() {
-            return patient_name;
+        public String getMember_name() {
+            return member_name;
         }
 
-        public void setPatient_name(String patient_name) {
-            this.patient_name = patient_name;
+        public void setMember_name(String member_name) {
+            this.member_name = member_name;
         }
 
-        @SerializedName("patient_name")
+        @SerializedName("member_name")
         @Expose
-        private String patient_name;
+        private String member_name;
 
 
         public String getSpecialities() {

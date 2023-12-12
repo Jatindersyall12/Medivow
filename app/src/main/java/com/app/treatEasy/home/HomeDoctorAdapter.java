@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.treatEasy.R;
+import com.app.treatEasy.appointment.AppointmentBookingActivity;
 import com.app.treatEasy.feature.home_screen.Doctor;
 import com.app.treatEasy.listeners.ItemClickListener;
 import com.app.treatEasy.new_feature.home.HomeResponse;
@@ -29,11 +31,12 @@ public class HomeDoctorAdapter extends RecyclerView.Adapter<HomeDoctorAdapter.My
     private final ItemClickListener itemClickListener;
     private List<Doctor> mModelList;
 
-    public HomeDoctorAdapter(Context context, ItemClickListener itemClickListener,List<Doctor> mModelList) {
+    public HomeDoctorAdapter(Context context, ItemClickListener itemClickListener, List<Doctor> mModelList) {
         this.mContext = context;
         this.itemClickListener = itemClickListener;
         this.mModelList = mModelList;
     }
+
     @NotNull
 
     @Override
@@ -61,21 +64,24 @@ public class HomeDoctorAdapter extends RecyclerView.Adapter<HomeDoctorAdapter.My
         holder.mDoctorImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(mContext, DoctorProfileActivity.class);
-                intent.putExtra("doctor_id",mModelList.get(position).getId());
+                Intent intent = new Intent(mContext, DoctorProfileActivity.class);
+                intent.putExtra("doctor_id", mModelList.get(position).getId());
                 mContext.startActivity(intent);
             }
         });
     }
+
     @Override
     public int getItemCount() {
         return (mModelList == null) ? 0 : mModelList.size();
     }
+
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         LinearLayout mMainLayout;
+        Button btnAppointment;
         ImageView mDoctorImage;
-        TextView mDoctorName,txt_hospital,txt_doctor_speciality;
+        TextView mDoctorName, txt_hospital, txt_doctor_speciality;
 
         MyViewHolder(View itemView) {
             super(itemView);
@@ -83,8 +89,10 @@ public class HomeDoctorAdapter extends RecyclerView.Adapter<HomeDoctorAdapter.My
             mDoctorImage = itemView.findViewById(R.id.img_doctor);
             mDoctorName = itemView.findViewById(R.id.txt_doctor_name);
             txt_hospital = itemView.findViewById(R.id.txt_hospital);
+            btnAppointment = itemView.findViewById(R.id.btnBookAppointment);
             txt_doctor_speciality = itemView.findViewById(R.id.txt_doctor_speciality);
             mMainLayout.setOnClickListener(this);
+            btnAppointment.setOnClickListener(this);
         }
 
         @SuppressLint("NonConstantResourceId")
@@ -93,6 +101,13 @@ public class HomeDoctorAdapter extends RecyclerView.Adapter<HomeDoctorAdapter.My
             switch (v.getId()) {
                 case R.id.root_layout:
                     itemClickListener.OnItemClick(v, getAdapterPosition());
+                    break;
+                case R.id.btnBookAppointment:
+                    Intent intent = new Intent(mContext, AppointmentBookingActivity.class);
+                    intent.putExtra("doctorId", mModelList.get(getAdapterPosition()).getId());
+                    intent.putExtra("doctorName", mModelList.get(getAdapterPosition()).getDoctorName());
+                    intent.putExtra("clientId", mModelList.get(getAdapterPosition()).getClient_id());
+                    mContext.startActivity(intent);
                     break;
             }
         }

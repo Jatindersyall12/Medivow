@@ -372,6 +372,7 @@
                     android:background="@drawable/map" />
 
                 <Button
+                    android:id="@+id/btnAppoitment"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_margin="20dp"

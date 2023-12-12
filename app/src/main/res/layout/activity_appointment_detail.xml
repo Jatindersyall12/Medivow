@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto_regular"
-                    android:text="Appointment No:"
+                    android:text="Token No:"
                     android:textColor="@color/colorPrimary"
                     android:textSize="17sp" />
 
@@ -93,6 +93,35 @@
                     android:textSize="17sp" />
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Patient Name:"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tvPatientName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="right"
+                    android:text="wallet"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"

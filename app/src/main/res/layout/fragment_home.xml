@@ -122,9 +122,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:textColor="@color/grey_medium"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="Search a doctor or health issue" />
+                    android:text="Search a doctor or health issue"
+                    android:textColor="@color/grey_medium" />
             </RelativeLayout>
 
             <LinearLayout
@@ -393,6 +393,7 @@
                     android:text="Upcoming Appoinments"/>
 
                 <TextView
+                    android:id="@+id/btnBookAppointment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

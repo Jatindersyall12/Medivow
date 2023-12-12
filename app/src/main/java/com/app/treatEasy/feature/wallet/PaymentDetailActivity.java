@@ -1,26 +1,16 @@
 package com.app.treatEasy.feature.wallet;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.app.treatEasy.BaseAppApplication;
 import com.app.treatEasy.R;
 import com.app.treatEasy.baseui.BaseActivity;
-import com.app.treatEasy.feature.landing_activity.HomeActivity;
 import com.app.treatEasy.listeners.ItemPaymentListenr;
 import com.app.treatEasy.payment.LabFeeActivity;
 import com.app.treatEasy.payment.MakePaymentRes;
@@ -31,10 +21,6 @@ import com.app.treatEasy.payment.surgery_package.PaymentPackageActivity;
 import com.app.treatEasy.preference.AppPreferences;
 import com.app.treatEasy.state.RetrofitClient;
 import com.bumptech.glide.Glide;
-
-import java.util.List;
-
-import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

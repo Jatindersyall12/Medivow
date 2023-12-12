@@ -567,11 +567,11 @@ public class BaseActivity extends AppCompatActivity implements AppConstants, Vie
                 (view, year, monthOfYear, dayOfMonth) -> {
                     mTvDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
                 }, mYear, mMonth, mDay);
-     //   datePickerDialog.getDatePicker().setMaxDate();
-        datePickerDialog.getDatePicker().setMinDate(c.getTimeInMillis());
+        datePickerDialog.getDatePicker().setMaxDate(c.getTimeInMillis());
+        //datePickerDialog.getDatePicker().setMinDate(c.getTimeInMillis());
 
         // Disable future dates (e.g., up to one year from today)
-        c.add(Calendar.YEAR, 1);
+       // c.add(Calendar.YEAR, 1);
         datePickerDialog.getDatePicker().setMaxDate(c.getTimeInMillis());
         datePickerDialog.show();
 

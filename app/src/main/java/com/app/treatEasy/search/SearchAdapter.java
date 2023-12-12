@@ -58,6 +58,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
             public void onClick(View v) {
                 Intent intent=new Intent(mContext, DoctorProfileActivity.class);
                 intent.putExtra("doctor_id",mModelList.get(position).getId());
+                intent.putExtra("client_id",mModelList.get(position).getClient_id());
+                intent.putExtra("doctor_name",mModelList.get(position).getDoctor_name());
                 mContext.startActivity(intent);
             }
         });

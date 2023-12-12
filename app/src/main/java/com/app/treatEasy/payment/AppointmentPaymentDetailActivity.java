@@ -114,15 +114,15 @@ public class AppointmentPaymentDetailActivity extends BaseActivity {
 
     private void setDataOnTheView(GetAmountToPayRes.Data data) {
         tvTokenNumber.setText(tokenNumber);
-        tvWalletAmount.setText(AppPreferences.getPreferenceInstance(AppointmentPaymentDetailActivity.this).getPayment());
         tvDoctorFee.setText(data.fee);
         tvConvenienceFees.setText(data.convenience_fee);
         tvDiscountedAmount.setText(data.discounted_fee);
-        totalFee = ((Integer.parseInt(data.fee) + Integer.parseInt(data.convenience_fee)) - Integer.parseInt(data.discounted_fee));
+        totalFee = ((Integer.parseInt(data.fee) + Integer.parseInt(data.convenience_fee)));
         tvSubTotal.setText(totalFee + "");
 
         AppPreferences.getPreferenceInstance(this).setPayment("20000");
 
+        tvWalletAmount.setText(AppPreferences.getPreferenceInstance(AppointmentPaymentDetailActivity.this).getPayment());
 
         if (Integer.parseInt(totalFee + "") > Integer.parseInt(AppPreferences.getPreferenceInstance(AppointmentPaymentDetailActivity.this).getPayment())) {
             layWallet.setVisibility(View.VISIBLE);
@@ -140,6 +140,7 @@ public class AppointmentPaymentDetailActivity extends BaseActivity {
                             String paymentFor, String paymentStatus) {
 
         showProgressDialog();
+        Log.e("token time",tokenTime);
 
         Call<MakePaymentRes> call = RetrofitClient.getInstance().getMyApi().makePayment(userId, clientId, doctorID,
                 bookingId, paymentFor, paymentStatus, amount, tokenNumber, memberId, desc, tokenTime);
@@ -152,6 +153,7 @@ public class AppointmentPaymentDetailActivity extends BaseActivity {
 
                     Intent intent = new Intent(getApplicationContext(), AppointmentStatusActivity.class);
                     intent.putExtra("appointmentId", response.body().getData().getAppointment_id());
+                    intent.putExtra("tokenNumber", tokenNumber);
                     startActivity(intent);
                 }
             }

@@ -129,7 +129,13 @@ public class ProfileActivity extends BaseActivity {
                   //  Log.d("mobile no","mobile number"+response.body().getData().getMobileNo());
                     mDOB.setText(response.body().getData().getDob());
                     mEmail.setText(response.body().getData().getEmail());
-                    mGender.setText(response.body().getData().getGender());
+                    if(response.body().getData().getGender().equals("1"))
+                        mGender.setText("Male");
+                    else if(response.body().getData().getGender().equals("2"))
+                        mGender.setText("FeMale");
+                    if(response.body().getData().getGender().equals("3"))
+                        mGender.setText("Other");
+                    //mGender.setText(response.body().getData().getGender());
                    // mAddress.setText(response.body().getData().getAddress());
                     tv_govId.setText(response.body().getData().getGovtId());
                     tv_insurance.setText(response.body().getData().getPolicyNumber());

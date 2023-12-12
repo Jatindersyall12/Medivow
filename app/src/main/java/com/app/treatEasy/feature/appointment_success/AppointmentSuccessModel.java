@@ -56,6 +56,8 @@ public class AppointmentSuccessModel {
             this.appointment_date = appointment_date;
         }
 
+
+
         public String getDoctor_name() {
             return doctor_name;
         }
@@ -73,8 +75,54 @@ public class AppointmentSuccessModel {
         @SerializedName("doctor_name")
         String doctor_name;
 
+        public String getToken_no() {
+            return token_no;
+        }
+
+        public void setToken_no(String token_no) {
+            this.token_no = token_no;
+        }
+
+        @SerializedName("token_no")
+        String token_no;
+
         @SerializedName("approximate_time")
         String approximate_time;
+
+        @SerializedName("address")
+        String address;
+
+        public String getAddress() {
+            return address;
+        }
+
+        public void setAddress(String address) {
+            this.address = address;
+        }
+
+
+
+        @SerializedName("member_name")
+        String member_name;
+
+        public String getMember_name() {
+            return member_name;
+        }
+
+        public void setMember_name(String member_name) {
+            this.member_name = member_name;
+        }
+
+        @SerializedName("appointment_no")
+        String appointment_no;
+
+        public String getAppointment_no() {
+            return appointment_no;
+        }
+
+        public void setAppointment_no(String appointment_no) {
+            this.appointment_no = appointment_no;
+        }
 
         public String getApproximate_time() {
             return approximate_time;

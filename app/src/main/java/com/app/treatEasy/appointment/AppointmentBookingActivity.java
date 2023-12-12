@@ -66,6 +66,7 @@ public class AppointmentBookingActivity extends BaseActivity {
         doctorName = getIntent().getStringExtra("doctorName");
         clientId = getIntent().getStringExtra("clientId");
 
+
         ids();
         tvDoctorName.setText(doctorName);
         clientDoctorLIst = new ArrayList<>();

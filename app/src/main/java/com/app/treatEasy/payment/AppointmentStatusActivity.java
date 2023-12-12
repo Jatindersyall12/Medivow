@@ -20,8 +20,8 @@ import retrofit2.Response;
 
 
 public class AppointmentStatusActivity extends BaseActivity {
-    TextView tvAppoitmentNo, tvDoctorName, tvDate, tvTime, tvAddress;
-    String appointmentId;
+    TextView tvAppoitmentNo, tvDoctorName, tvDate, tvTime, tvAddress,tvPatientName;
+    String appointmentId,tokenNumber;
     Button btnBackToDashboard;
 
     @Override
@@ -29,6 +29,7 @@ public class AppointmentStatusActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment_status);
         appointmentId = getIntent().getStringExtra("appointmentId");
+        tokenNumber= getIntent().getStringExtra("tokenNumber");
         Log.e("appoii",appointmentId);
         getAppointmentDetail(AppPreferences.getPreferenceInstance(this).getUserId(), appointmentId);
         setUpToolBar(getString(R.string.appointment_status), true);
@@ -46,11 +47,12 @@ public class AppointmentStatusActivity extends BaseActivity {
     }
 
     private void setDataOnUI(AppointmentSuccessModel.Data data) {
-        tvAppoitmentNo.setText("102222");
+        tvAppoitmentNo.setText(tokenNumber);
         tvDoctorName.setText(data.getDoctor_name());
         tvDate.setText(data.getAppointment_date());
         tvTime.setText(data.getApproximate_time());
-        tvAddress.setText("635866");
+        tvAddress.setText(data.getAddress());
+        tvPatientName.setText(data.getMember_name());
     }
 
     public void init() {
@@ -61,6 +63,7 @@ public class AppointmentStatusActivity extends BaseActivity {
         tvTime = findViewById(R.id.tvTime);
         tvAddress = findViewById(R.id.tvAddress);
         btnBackToDashboard = findViewById(R.id.btnBackToDashBoard);
+        tvPatientName=findViewById(R.id.tvPatientName);
 
     }
 

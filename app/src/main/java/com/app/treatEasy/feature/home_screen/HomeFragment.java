@@ -93,7 +93,7 @@ public class HomeFragment extends BaseFragment implements ItemClickListener,View
     List<CityResponseModel.Datum>cityList;
     String location="",uId="",cityId,searchFor="",cityIdForSearch="";
     int scrollCount;
-    TextView tvChangeLocation,tvHospitalBill,tvLocation,tvAmount,tvSell,tvUpcomingAppointment;
+    TextView tvChangeLocation,tvHospitalBill,tvLocation,tvAmount,tvSell,tvUpcomingAppointment,btnBookAppointment;
     ImageView imgbanner1,imgbanner2;
     LinearLayout user_state_layout,user_city_layout,llLocation;
     SpringDotsIndicator dot2,dot1;
@@ -130,7 +130,7 @@ public class HomeFragment extends BaseFragment implements ItemClickListener,View
         tvHospitalBill = view.findViewById(R.id.tvHospitalBill);
         tvSell = view.findViewById(R.id.tvSell);
         tvUpcomingAppointment=view.findViewById(R.id.tvUpcomingAppointment);
-
+        btnBookAppointment=view.findViewById(R.id.btnBookAppointment);
         llLocation = view.findViewById(R.id.llLocation);
         tvLocation = view.findViewById(R.id.tvLocation);
         tvAmount = view.findViewById(R.id.tvAmount);
@@ -141,6 +141,17 @@ public class HomeFragment extends BaseFragment implements ItemClickListener,View
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(), AppointmentListActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btnBookAppointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), SearchActivity.class);
+                intent.putExtra("cityId",AppPreferences.getPreferenceInstance(getActivity()).getUserLocation());
+                intent.putExtra("type","Doctor");
+                startActivity(intent);
+                Log.e("sdsd","dfdf");
             }
         });
 
@@ -412,8 +423,17 @@ public class HomeFragment extends BaseFragment implements ItemClickListener,View
                     secondBannerList=response.body().getData().getMiddleBanners();
                     doctorListResponse=response.body().getData().getDoctors();
 
-                    tvLocation.setText(response.body().getData().getLocation().getCityName()+" ,"+
-                            response.body().getData().getLocation().getState());
+                    try {
+                        if(response.body().getData().getLocation().getCityName()!=null&&response.body().getData().getLocation().getState()!=null) {
+                            tvLocation.setText(response.body().getData().getLocation().getCityName() + " ," +
+                                    response.body().getData().getLocation().getState());
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        e.printStackTrace();
+                    }
+
                     tvAmount.setText(response.body().getData().getWalletAmount());
                     AppPreferences.getPreferenceInstance(getActivity()).setPayment(response.body().getData().getWalletAmount());
 

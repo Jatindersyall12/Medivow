@@ -63,7 +63,7 @@ public class AppointmentListAdapter extends RecyclerView.Adapter<AppointmentList
                     });
         }
         String detail;
-        detail = appointmentList.get(position).getPatient_name();
+        detail = appointmentList.get(position).getMember_name();
         if (appointmentList.get(position).getGender().equals("1"))
             detail = detail + "(" + "M" + "," + appointmentList.get(position).getAge() + ")";
         else if (appointmentList.get(position).getGender().equals("2"))

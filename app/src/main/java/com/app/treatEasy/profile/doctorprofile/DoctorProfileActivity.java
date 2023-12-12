@@ -5,16 +5,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.app.treatEasy.R;
+import com.app.treatEasy.appointment.AppointmentBookingActivity;
 import com.app.treatEasy.apputils.BaseUtils;
 import com.app.treatEasy.baseui.BaseActivity;
 import com.app.treatEasy.doctorsDetail.DoctorReviewActivity;
 import com.app.treatEasy.preference.AppPreferences;
+import com.app.treatEasy.search.SearchActivity;
 import com.app.treatEasy.state.RetrofitClient;
+import com.google.android.material.snackbar.Snackbar;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,7 +30,8 @@ public class DoctorProfileActivity extends BaseActivity  {
    private TextView tv_name,tv_speciality,tvHospitalName,tvRating,tvReview,tvAbout,
            tvDescription;
    private RecyclerView rvHospital;
-   String doctorId,name,imageUrl;
+   String doctorId,name,imageUrl,client_id,doctor_name;
+   Button btnAppoitment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,8 @@ public class DoctorProfileActivity extends BaseActivity  {
         setContentView(R.layout.activity_doctor_profile);
         setUpToolBarProfile("Doctor Profile",true);
         doctorId=getIntent().getStringExtra("doctor_id");
+        client_id=getIntent().getStringExtra("client_id");
+        doctor_name=getIntent().getStringExtra("doctor_name");
 
         init();
 
@@ -63,6 +71,19 @@ public class DoctorProfileActivity extends BaseActivity  {
         tvAbout=findViewById(R.id.tvAbout);
         tvDescription=findViewById(R.id.tvDescription);
         rvHospital=findViewById(R.id.rvHospital);
+        btnAppoitment=findViewById(R.id.btnAppoitment);
+        btnAppoitment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(DoctorProfileActivity.this, AppointmentBookingActivity.class);
+
+                intent.putExtra("doctorId",doctorId);
+                intent.putExtra("doctorName",doctor_name);
+                intent.putExtra("clientId",client_id);
+                startActivity(intent);
+
+            }
+        });
 
         /*getProfile(AppPreferences.getPreferenceInstance(DoctorProfileActivity.this).getUserId(),
                 doctorId);*/
@@ -87,6 +108,9 @@ public class DoctorProfileActivity extends BaseActivity  {
 
                 name=response.body().getData().get(0).getDoctorName();
                 imageUrl=response.body().getData().get(0).getProfileImage();
+                doctorId=response.body().getData().get(0).getId();
+                doctor_name=response.body().getData().get(0).getDoctorName();
+                client_id=response.body().getData().get(0).getHospitals().get(0).getClientId();
 
                 if (response.body().getStatusCode()==200){
                     BaseUtils.setImage(response.body().getData().get(0).getProfileImage(),img_user_image,

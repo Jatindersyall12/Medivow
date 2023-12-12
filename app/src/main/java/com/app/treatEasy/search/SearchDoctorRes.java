@@ -55,6 +55,43 @@ public class SearchDoctorRes {
         @SerializedName("description")
         @Expose
         private String description;
+        @SerializedName("client_id")
+        @Expose
+        private String client_id;
+
+        public String getDoctor_id() {
+            return doctor_id;
+        }
+
+        public void setDoctor_id(String doctor_id) {
+            this.doctor_id = doctor_id;
+        }
+
+        @SerializedName("doctor_id")
+        @Expose
+        private String doctor_id;
+
+        public String getClient_id() {
+            return client_id;
+        }
+
+        public void setClient_id(String client_id) {
+            this.client_id = client_id;
+        }
+
+        public String getDoctor_name() {
+            return doctor_name;
+        }
+
+        public void setDoctor_name(String doctor_name) {
+            this.doctor_name = doctor_name;
+        }
+
+        @SerializedName("doctor_name")
+        @Expose
+        private String doctor_name;
+
+
         @SerializedName("specialities")
         @Expose
         private String specialities;
